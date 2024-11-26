@@ -2,17 +2,11 @@ require "rails_helper"
 require "generators/panda_core/templates_generator"
 require "generator_spec"
 
-RSpec.describe PandaCore::TemplatesGenerator do
+RSpec.describe PandaCore::Generators::TemplatesGenerator do
   include FileUtils
   include GeneratorSpec::TestCase
 
-  def self.timestamped_path
-    timestamp = Time.current.strftime("%Y%m%d_%H%M%S")
-    Rails.root.join("spec/tmp/#{timestamp}")
-  end
-
-  tests PandaCore::TemplatesGenerator
-  destination timestamped_path
+  destination File.expand_path("../../../tmp", __FILE__)
 
   let(:template_files) do
     template_root = described_class.source_root
@@ -24,14 +18,12 @@ RSpec.describe PandaCore::TemplatesGenerator do
 
   let(:missing_file) { ".lefthook.yml" }
 
-  before do
-    self.destination_root = self.class.timestamped_path
-    FileUtils.mkdir_p(Rails.root.join("spec/tmp"))
+  before(:all) do
     prepare_destination
   end
 
-  after do
-    FileUtils.rm_rf(self.class.timestamped_path)
+  after(:all) do
+    FileUtils.rm_rf(destination_root)
   end
 
   it "copies all template files" do
@@ -69,7 +61,7 @@ RSpec.describe PandaCore::TemplatesGenerator do
     allow(FileUtils).to receive(:mkdir_p)
 
     # Stub Thor's copy_file to raise error for missing file
-    generator = PandaCore::TemplatesGenerator.new
+    generator = PandaCore::Generators::TemplatesGenerator.new
     allow(generator).to receive(:copy_file).and_call_original
     allow(generator).to receive(:copy_file)
       .with(File.join(template_root, missing_file), missing_file, force: true)

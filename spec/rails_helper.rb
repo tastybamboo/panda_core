@@ -19,6 +19,8 @@ ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../dummy/config/environment", __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "rspec/rails"
+require "rails/generators/test_case"
+# require "rspec/rails/generators"
 
 # Add additional requires below this line. Rails is not loaded until this point!
 require "shoulda/matchers"
@@ -28,6 +30,7 @@ require "view_component/test_helpers"
 require "faker"
 require "puma"
 require "factory_bot_rails"
+require "rails/generators/test_case"
 
 # The following line is provided for convenience purposes. It has the downside
 # of increasing the boot-up time by auto-requiring all files in the support
@@ -107,11 +110,18 @@ RSpec.configure do |config|
       Bullet.end_request
     end
   end
+
+  # config.include RSpec::Rails::Generators, type: :generator
+  config.include Rails::Generators::Testing::Assertions, type: :generator
+  config.include FileUtils, type: :generator
+
+  # Set up temporary directory for generator tests
+  config.before(:each, type: :generator) do
+    FileUtils.rm_rf(Rails.root.join("tmp/generators"))
+    FileUtils.mkdir_p(Rails.root.join("tmp/generators"))
+  end
+
+  config.after(:each, type: :generator) do
+    FileUtils.rm_rf(Rails.root.join("tmp/generators"))
+  end
 end
-
-require "bundler/setup"
-# Add this line before requiring the gem
-lib = File.expand_path("../../lib", __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-
-require "panda_core"

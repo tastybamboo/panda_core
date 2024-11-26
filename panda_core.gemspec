@@ -34,8 +34,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency "thruster"
 
   spec.add_development_dependency "rake", "~> 13.0"
-  spec.add_development_dependency "rspec", "~> 3.12"
+  spec.add_development_dependency "rspec-rails", "~> 6.1.0"
   spec.add_development_dependency "factory_bot_rails"
+  spec.add_development_dependency "generator_spec"
 
   spec.add_development_dependency "simplecov"
   spec.add_development_dependency "simplecov-json"
@@ -47,7 +48,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "propshaft"
   spec.add_development_dependency "stimulus-rails"
   spec.add_development_dependency "turbo-rails"
-  spec.add_development_dependency "generator_spec"
 
   # Development dependencies for CI workflow
   spec.add_development_dependency "bundler-audit" # For security checks
@@ -55,7 +55,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "standard" # For Ruby linting
   spec.add_development_dependency "erb_lint" # For ERB linting
   spec.add_development_dependency "yamllint" # For YAML linting
-  spec.add_development_dependency "rspec-rails" # For testing
   spec.add_development_dependency "capybara" # For system tests
   spec.add_development_dependency "cuprite" # For headless Chrome testing
   spec.add_development_dependency "pg" # For PostgreSQL
