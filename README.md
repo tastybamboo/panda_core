@@ -3,6 +3,7 @@
 Core functionality shared between Panda Software gems:
 
 - Panda CMS (https://github.com/pandacms/panda_cms)
+- Panda Auth (coming soon)
 
 ## Installation
 
@@ -14,19 +15,23 @@ And then execute:
 
     $ bundle install
 
-## Usage
+## Setup
 
-### Shared Configuration Templates
+### 1. Run the Install Generator
+
+This will:
+
+- Add required gem dependencies
+- Create an initializer
+- Mount the engine in your routes
+
+    $ rails generate panda_core:install
+
+### 2. Install Configuration Templates
 
 PandaCore provides standard configuration files that can be used across all Panda gems to ensure consistency.
 
-#### Using the Generator
-
-PandaCore provides standard configuration files that can be used across all Panda gems to ensure consistency.
-
-To install the configuration files:
-
-    rails generate panda_core:templates
+    $ rails generate panda_core:templates
 
 This will copy the following configuration files to your project:
 
@@ -40,28 +45,62 @@ This will copy the following configuration files to your project:
 - `.rspec` - RSpec configuration
 - `.standard.yml` - Ruby Standard configuration
 
-#### Option 2: Using the Rake Task
+### 3. Configure Dependencies
 
-    bundle exec rake panda_core:templates:install
+The following gems will be added to your Gemfile:
 
-#### Customizing Configurations
+- `panda_cms`
+- `panda_auth`
+- `devise`
+- `cancancan`
 
-Some configuration files support inheritance. For example, to extend the standard Ruby style rules:
-
-    # Your gem's .standard.yml
-    inherit_gem:
-      panda_core: lib/panda_core/templates/.standard.yml
-
-    # Add your gem-specific overrides here
+Make sure to follow the setup instructions for each of these gems.
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests.
+After checking out the repo:
+
+1. Run setup:
+
+    $ bin/setup
+
+2. Run the test suite:
+
+    $ bundle exec rspec
+
+3. Run the linter:
+
+    $ bundle exec standardrb
+
+## Testing
+
+The gem includes several types of tests:
+
+- Generator tests for installation and template copying
+- System tests using Capybara
+- Unit tests for core functionality
+
+To run specific test types:
+
+    # Run all tests
+    $ bundle exec rspec
+
+    # Run only generator tests
+    $ bundle exec rspec spec/generators
+
+    # Run only system tests
+    $ bundle exec rspec spec/system
 
 ## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b feature/my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin feature/my-new-feature`)
+5. Create new Pull Request
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/pandacms/panda_core.
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause).
