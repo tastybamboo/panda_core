@@ -1,8 +1,8 @@
 require "rails_helper"
-require "generators/panda_core/templates_generator"
+require_relative "../../../../lib/panda/core/generators/templates_generator"
 require "generator_spec"
 
-RSpec.describe PandaCore::Generators::TemplatesGenerator do
+RSpec.describe Panda::Core::Generators::TemplatesGenerator do
   include FileUtils
   include GeneratorSpec::TestCase
 
@@ -61,7 +61,7 @@ RSpec.describe PandaCore::Generators::TemplatesGenerator do
     allow(FileUtils).to receive(:mkdir_p)
 
     # Stub Thor's copy_file to raise error for missing file
-    generator = PandaCore::Generators::TemplatesGenerator.new
+    generator = Panda::Core::Generators::TemplatesGenerator.new
     allow(generator).to receive(:copy_file).and_call_original
     allow(generator).to receive(:copy_file)
       .with(File.join(template_root, missing_file), missing_file, force: true)

@@ -8,7 +8,7 @@ require "bundler/setup"
 # Add this line before requiring the gem
 lib = File.expand_path("../../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "panda_core"
+require_relative "../lib/panda/core"
 
 require "propshaft"
 require "stimulus-rails"

@@ -1,12 +1,12 @@
 require "rails_helper"
-require "generators/panda_core/install/install_generator"
+require_relative "../../../../../lib/panda/core/generators/install/install_generator"
 require "generator_spec"
 
-RSpec.describe PandaCore::Generators::InstallGenerator, type: :generator do
+RSpec.describe Panda::Core::Generators::InstallGenerator, type: :generator do
   include GeneratorSpec::TestCase
-  tests PandaCore::Generators::InstallGenerator
+  tests Panda::Core::Generators::InstallGenerator
 
-  destination File.expand_path("../../../tmp", __FILE__)
+  destination File.expand_path("../../../../../../tmp", __FILE__)
 
   before(:all) do
     prepare_destination
@@ -39,7 +39,7 @@ RSpec.describe PandaCore::Generators::InstallGenerator, type: :generator do
 
       it "mounts the engine in routes.rb" do
         routes_content = File.read(File.join(destination_root, "config/routes.rb"))
-        expect(routes_content).to match(/mount PandaCore::Engine => '\//)
+        expect(routes_content).to match(/mount Panda::Core::Engine => '\/'/)
       end
     end
 

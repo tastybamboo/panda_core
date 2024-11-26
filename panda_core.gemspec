@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require_relative "lib/panda_core/version"
+require_relative "lib/panda/core/version"
 
 Gem::Specification.new do |spec|
   spec.name = "panda_core"
-  spec.version = PandaDevTools::VERSION
+  spec.version = Panda::Core::VERSION
   spec.authors = ["Panda Software Limited", "James Inman"]
   spec.email = ["bamboo@pandacms.io"]
 
-  spec.summary = "Development tools for PandaCMS ecosystem"
+  spec.summary = "Core libraries and development tools for Panda Software ecosystem"
   spec.description = "Shared development tools, configurations, and utilities for PandaCMS and its extensions"
   spec.homepage = "https://github.com/pandacms/panda_core"
   spec.license = "BSD-3-Clause"
@@ -26,37 +26,67 @@ Gem::Specification.new do |spec|
     "lib/panda_core/templates/**/*"
   ]
 
-  spec.add_dependency "standard", "~> 1.35"
-  spec.add_dependency "standard-rails", "~> 1.0"
+  spec.add_dependency "activestorage-office-previewer"
+  spec.add_dependency "awesome_nested_set", "~> 3.7"
+  spec.add_dependency "aws-sdk-s3", "~> 1"
+  spec.add_dependency "dry-configurable", "~> 1"
+  spec.add_dependency "faraday", "~> 2"
+  spec.add_dependency "faraday-retry", "~> 2"
+  spec.add_dependency "faraday-multipart", "~> 1"
   spec.add_dependency "image_processing", "~> 1.2"
-  spec.add_dependency "active_storage_validations"
+  spec.add_dependency "importmap-rails", "~> 2"
+  spec.add_dependency "lookbook", "~> 2"
+  spec.add_dependency "omniauth", "~> 2.1"
+  spec.add_dependency "omniauth-github", "~> 2.0" # TODO: Make this optional
+  spec.add_dependency "omniauth-google-oauth2", "~> 1.1" # TODO: Make this optional
+  spec.add_dependency "omniauth-microsoft_graph", "~> 2.0" # TODO: Make this optional
+  spec.add_dependency "omniauth-rails_csrf_protection", "~> 1.0"
+  spec.add_dependency "paper_trail", "~> 15"
+  spec.add_dependency "pg", "~> 1.5"
+  spec.add_dependency "rails", ">= 7.1"
+  spec.add_dependency "silencer", "~> 2.0"
+  spec.add_dependency "propshaft", "~> 1.1"
+  spec.add_dependency "stimulus-rails", "~> 1.3"
+  spec.add_dependency "tailwindcss-rails", "~> 3"
+  spec.add_dependency "turbo-rails", "~> 2.0"
+  spec.add_dependency "view_component", "~> 3"
 
-  spec.add_dependency "thruster"
-
-  spec.add_development_dependency "rake", "~> 13.0"
-  spec.add_development_dependency "rspec-rails", "~> 6.1.0"
+  spec.add_development_dependency "annotaterb"
+  spec.add_development_dependency "better_errors"
+  spec.add_development_dependency "binding_of_caller"
+  spec.add_development_dependency "brakeman"
+  spec.add_development_dependency "bullet"
+  spec.add_development_dependency "bundler-audit"
+  spec.add_development_dependency "capybara"
+  spec.add_development_dependency "cuprite"
+  spec.add_development_dependency "danger-reek"
+  spec.add_development_dependency "danger-rubocop"
+  spec.add_development_dependency "danger-simplecov_json"
+  spec.add_development_dependency "danger-todoist"
+  spec.add_development_dependency "danger"
+  spec.add_development_dependency "erb_lint"
   spec.add_development_dependency "factory_bot_rails"
+  spec.add_development_dependency "faker" # TODO: Remove depdedency by baking in OmniAuth mocks?
+  spec.add_development_dependency "fasterer"
   spec.add_development_dependency "generator_spec"
-
-  spec.add_development_dependency "simplecov"
-  spec.add_development_dependency "simplecov-json"
-  spec.add_development_dependency "rspec-github"
-  spec.add_development_dependency "shoulda-matchers"
-  spec.add_development_dependency "view_component"
-  spec.add_development_dependency "faker"
+  spec.add_development_dependency "listen"
+  spec.add_development_dependency "pg"
   spec.add_development_dependency "puma"
-  spec.add_development_dependency "propshaft"
-  spec.add_development_dependency "stimulus-rails"
-  spec.add_development_dependency "turbo-rails"
-
-  # Development dependencies for CI workflow
-  spec.add_development_dependency "bundler-audit" # For security checks
-  spec.add_development_dependency "brakeman" # For security checks
-  spec.add_development_dependency "standard" # For Ruby linting
-  spec.add_development_dependency "erb_lint" # For ERB linting
-  spec.add_development_dependency "yamllint" # For YAML linting
-  spec.add_development_dependency "capybara" # For system tests
-  spec.add_development_dependency "cuprite" # For headless Chrome testing
-  spec.add_development_dependency "pg" # For PostgreSQL
-  spec.add_development_dependency "redis" # For Redis
+  spec.add_development_dependency "rake"
+  spec.add_development_dependency "redis"
+  spec.add_development_dependency "rspec-github"
+  spec.add_development_dependency "rspec-rails"
+  spec.add_development_dependency "ruby-lsp"
+  spec.add_development_dependency "shoulda-matchers"
+  spec.add_development_dependency "simplecov_json_formatter"
+  spec.add_development_dependency "simplecov_lcov_formatter"
+  spec.add_development_dependency "simplecov-json"
+  spec.add_development_dependency "simplecov-lcov"
+  spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "standard-rails"
+  spec.add_development_dependency "standard"
+  spec.add_development_dependency "undercover"
+  spec.add_development_dependency "view_component"
+  spec.add_development_dependency "yamllint"
+  spec.add_development_dependency "yard-activerecord"
 end

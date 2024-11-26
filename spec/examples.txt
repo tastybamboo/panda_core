@@ -1,9 +1,9 @@
 example_id                                                                | status | run_time        |
 ------------------------------------------------------------------------- | ------ | --------------- |
-./spec/generators/panda_core/install/install_generator_spec.rb[1:1:1:1]   | passed | 0.00206 seconds |
-./spec/generators/panda_core/install/install_generator_spec.rb[1:1:1:2]   | passed | 0.00246 seconds |
-./spec/generators/panda_core/install/install_generator_spec.rb[1:1:2:1:1] | passed | 0.002 seconds   |
-./spec/generators/panda_core/install/install_generator_spec.rb[1:1:2:2:1] | passed | 0.00227 seconds |
-./spec/generators/panda_core/install/install_generator_spec.rb[1:1:2:3:1] | passed | 0.00169 seconds |
-./spec/generators/panda_core/templates_generator_spec.rb[1:1]             | passed | 0.00104 seconds |
-./spec/generators/panda_core/templates_generator_spec.rb[1:2]             | passed | 0.1858 seconds  |
+./spec/generators/panda/core/install/install_generator_spec.rb[1:1:1:1]   | passed | 0.00239 seconds |
+./spec/generators/panda/core/install/install_generator_spec.rb[1:1:1:2]   | passed | 0.00247 seconds |
+./spec/generators/panda/core/install/install_generator_spec.rb[1:1:2:1:1] | passed | 0.25188 seconds |
+./spec/generators/panda/core/install/install_generator_spec.rb[1:1:2:2:1] | passed | 0.00258 seconds |
+./spec/generators/panda/core/install/install_generator_spec.rb[1:1:2:3:1] | passed | 0.00255 seconds |
+./spec/generators/panda/core/templates_generator_spec.rb[1:1]             | passed | 0.00313 seconds |
+./spec/generators/panda/core/templates_generator_spec.rb[1:2]             | passed | 0.02236 seconds |

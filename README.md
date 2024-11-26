@@ -3,7 +3,6 @@
 Core functionality shared between Panda Software gems:
 
 - Panda CMS (https://github.com/pandacms/panda_cms)
-- Panda Auth (coming soon)
 
 ## Installation
 
@@ -29,7 +28,7 @@ This will:
 
 ### 2. Install Configuration Templates
 
-PandaCore provides standard configuration files that can be used across all Panda gems to ensure consistency.
+Panda Core provides standard configuration files that can be used across all Panda gems to ensure consistency.
 
     $ rails generate panda_core:templates
 
@@ -49,10 +48,7 @@ This will copy the following configuration files to your project:
 
 The following gems will be added to your Gemfile:
 
-- `panda_cms`
-- `panda_auth`
-- `devise`
-- `cancancan`
+- `panda_core`
 
 Make sure to follow the setup instructions for each of these gems.
 

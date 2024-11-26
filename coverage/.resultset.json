@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/james/Projects/panda_core/lib/panda_core.rb": {
+      "/Users/james/Projects/panda_core/lib/panda/core.rb": {
         "lines": [
           null,
           null,
@@ -9,9 +9,11 @@
           null,
           1,
           1,
+          1,
           null,
           1,
           0,
+          null,
           null,
           null
         ]
@@ -176,10 +178,11 @@
           null
         ]
       },
-      "/Users/james/Projects/panda_core/lib/generators/panda_core/install/install_generator.rb": {
+      "/Users/james/Projects/panda_core/lib/panda/core/generators/install/install_generator.rb": {
         "lines": [
           1,
           null,
+          1,
           1,
           1,
           1,
@@ -278,10 +281,11 @@
           null,
           null,
           null,
+          null,
           null
         ]
       },
-      "/Users/james/Projects/panda_core/spec/generators/panda_core/templates_generator_spec.rb": {
+      "/Users/james/Projects/panda_core/spec/generators/panda/core/templates_generator_spec.rb": {
         "lines": [
           1,
           1,
@@ -296,9 +300,9 @@
           1,
           2,
           2,
-          0,
-          0,
-          0,
+          24,
+          18,
+          18,
           null,
           null,
           2,
@@ -315,8 +319,8 @@
           1,
           null,
           1,
-          0,
-          0,
+          9,
+          9,
           null,
           null,
           null,
@@ -325,7 +329,7 @@
           null,
           null,
           1,
-          0,
+          9,
           null,
           null,
           null,
@@ -338,8 +342,8 @@
           null,
           1,
           1,
-          0,
-          0,
+          9,
+          9,
           null,
           null,
           null,
@@ -359,7 +363,7 @@
           null
         ]
       },
-      "/Users/james/Projects/panda_core/lib/generators/panda_core/templates_generator.rb": {
+      "/Users/james/Projects/panda_core/lib/panda/core/generators/templates_generator.rb": {
         "lines": [
           1,
           1,
@@ -369,6 +373,7 @@
           1,
           1,
           1,
+          1,
           null,
           1,
           null,
@@ -377,20 +382,21 @@
           2,
           null,
           2,
+          22,
+          19,
+          null,
+          19,
+          null,
+          null,
+          19,
           1,
-          1,
-          null,
-          1,
           null,
           null,
-          1,
-          1,
+          18,
+          18,
           null,
+          18,
           null,
-          0,
-          0,
-          null,
-          0,
           null,
           null,
           null,
@@ -399,6 +405,6 @@
         ]
       }
     },
-    "timestamp": 1732649485
+    "timestamp": 1732660767
   }
 }
