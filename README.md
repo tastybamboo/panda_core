@@ -28,13 +28,17 @@ This will:
 - Create an initializer
 - Mount the engine in your routes
 
-    rails generate panda_core:install
+```
+rails generate panda_core:install
+```
 
 ### 2. Install Configuration Templates
 
 Panda Core provides standard configuration files that can be used across all Panda gems to ensure consistency.
 
-    rails generate panda_core:templates
+```
+rails generate panda_core:templates
+```
 
 This will copy the following configuration files to your project:
 
