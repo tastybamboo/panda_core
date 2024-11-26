@@ -2,17 +2,21 @@
 
 Core functionality shared between Panda Software gems:
 
-- Panda CMS (https://github.com/pandacms/panda_cms)
+- Panda CMS (https://github.com/tastybamboo/panda_cms)
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'panda_core'
+```
+gem 'panda_core'
+```
 
 And then execute:
 
-    $ bundle install
+```
+bundle install
+```
 
 ## Setup
 
@@ -24,13 +28,13 @@ This will:
 - Create an initializer
 - Mount the engine in your routes
 
-    $ rails generate panda_core:install
+    rails generate panda_core:install
 
 ### 2. Install Configuration Templates
 
 Panda Core provides standard configuration files that can be used across all Panda gems to ensure consistency.
 
-    $ rails generate panda_core:templates
+    rails generate panda_core:templates
 
 This will copy the following configuration files to your project:
 
@@ -58,15 +62,21 @@ After checking out the repo:
 
 1. Run setup:
 
-    $ bin/setup
+```
+bin/setup
+```
 
 2. Run the test suite:
 
-    $ bundle exec rspec
+```
+bundle exec rspec
+```
 
 3. Run the linter:
 
-    $ bundle exec standardrb
+```
+bundle exec standardrb
+```
 
 ## Testing
 
@@ -78,14 +88,20 @@ The gem includes several types of tests:
 
 To run specific test types:
 
-    # Run all tests
-    $ bundle exec rspec
+```
+# Run all tests
+bundle exec rspec
+```
 
-    # Run only generator tests
-    $ bundle exec rspec spec/generators
+```
+# Run only generator tests
+bundle exec rspec spec/generators
+```
 
-    # Run only system tests
-    $ bundle exec rspec spec/system
+```
+# Run only system tests
+bundle exec rspec spec/system
+```
 
 ## Contributing
 
@@ -95,7 +111,7 @@ To run specific test types:
 4. Push to the branch (`git push origin feature/my-new-feature`)
 5. Create new Pull Request
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/pandacms/panda_core.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tastybamboo/panda_core.
 
 ## License
 
