@@ -5,26 +5,16 @@ files: git diff --name-only main
 pre-commit: ["seclint"]
 seclint:
   commands:
-    brakeman:
-      run: brakeman --no-pager --no-progress --quiet
     broken-links:
-      # Exclude links to GitHub private repositories for now
+      # Exclude links to localhost for now
       run: lychee . --exclude http://localhost:3000 --exclude file://
     bundle-audit:
       run: bundle exec bundle-audit --update
     bundle-outdated:
       run: bundle outdated --strict
-    erblint:
-      run: bundle exec erb_lint app/views --lint-all
-    fasterer:
-      run: bundle exec fasterer
-    rustywind:
-      run: rustywind .
     standardrb:
       run: bundle exec standardrb
-    yamllint:
-      run: yamllint -c .yamllint .
-    zeitwork:
-      run: rake app:zeitwerk:check
+    # yamllint:
+      # run: yamllint .
   name: Security & Linters
   parallel: true

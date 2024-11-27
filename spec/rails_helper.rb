@@ -20,7 +20,6 @@ require File.expand_path("../dummy/config/environment", __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "rspec/rails"
 require "rails/generators/test_case"
-# require "rspec/rails/generators"
 
 # Add additional requires below this line. Rails is not loaded until this point!
 require "shoulda/matchers"
@@ -30,7 +29,6 @@ require "view_component/test_helpers"
 require "faker"
 require "puma"
 require "factory_bot_rails"
-require "rails/generators/test_case"
 
 # The following line is provided for convenience purposes. It has the downside
 # of increasing the boot-up time by auto-requiring all files in the support
