@@ -13,11 +13,16 @@ module Panda
         end
 
         def install_initializer
-          initializer_path = File.join(destination_root, "config/initializers/panda_core.rb")
+          initializer_path = File.join(destination_root, "config/initializers/panda/core.rb")
 
           if File.exist?(initializer_path)
             append_missing_configurations(initializer_path)
           else
+            begin
+              FileUtils.mkdir_p(File.dirname(initializer_path))
+            rescue Errno::EEXIST
+              # Directory already exists, that's fine
+            end
             template "initializer.rb", initializer_path
           end
         end

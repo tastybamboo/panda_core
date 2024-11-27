@@ -34,7 +34,7 @@ RSpec.describe Panda::Core::Generators::InstallGenerator, type: :generator do
       before { run_generator }
 
       it "creates the initializer" do
-        expect(File).to exist(File.join(destination_root, "config/initializers/panda_core.rb"))
+        expect(File).to exist(File.join(destination_root, "config/initializers/panda/core.rb"))
       end
 
       # it "mounts the engine in routes.rb" do
@@ -45,9 +45,13 @@ RSpec.describe Panda::Core::Generators::InstallGenerator, type: :generator do
 
     context "with existing configuration" do
       before do
-        FileUtils.mkdir_p(File.join(destination_root, "config/initializers"))
+        begin
+          FileUtils.mkdir_p(File.join(destination_root, "config/initializers/panda"))
+        rescue Errno::EEXIST
+          # Directory already exists, that's fine
+        end
         File.write(
-          File.join(destination_root, "config/initializers/panda_core.rb"),
+          File.join(destination_root, "config/initializers/panda/core.rb"),
           <<~RUBY
             Panda::Core.configure do |config|
               config.user_class = "Admin"
@@ -58,7 +62,7 @@ RSpec.describe Panda::Core::Generators::InstallGenerator, type: :generator do
       end
 
       it "preserves existing configuration and adds missing settings" do
-        content = File.read(File.join(destination_root, "config/initializers/panda_core.rb"))
+        content = File.read(File.join(destination_root, "config/initializers/panda/core.rb"))
         expect(content).to include("config.user_class = \"Admin\"")
         expect(content).to include("# config.authentication_providers = []")
         expect(content).to include("# config.storage_provider = :active_storage")
