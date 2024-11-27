@@ -13,22 +13,28 @@ module Panda
         end
 
         def install_initializer
-          template "initializer.rb", File.join(destination_root, "config/initializers/panda_core.rb")
+          initializer_path = File.join(destination_root, "config/initializers/panda_core.rb")
+
+          if File.exist?(initializer_path)
+            append_missing_configurations(initializer_path)
+          else
+            template "initializer.rb", initializer_path
+          end
         end
 
-        def mount_engine
-          inject_into_file File.join(destination_root, "config/routes.rb"),
-            "  mount Panda::Core::Engine => '/'\n",
-            before: /^end/
-        end
+        # def mount_engine
+        #   inject_into_file File.join(destination_root, "config/routes.rb"),
+        #     "  mount Panda::Core::Engine => '/'\n",
+        #     before: /^end/
+        # end
 
         private
 
         def gems_to_add
           {
-            "panda_core" => {},
-            "gem_name" => {version: "1.0.0"},
-            "another_gem" => {git: "https://github.com/example/another_gem"}
+            "panda_core" => {}
+            # "gem_name" => {version: "1.0.0"},
+            # "another_gem" => {git: "https://github.com/example/another_gem"}
             # Add other gems as needed
           }
         end
@@ -96,6 +102,37 @@ module Panda
 
         def should_skip_gem?(gemfile_content, gem_name, new_options)
           gemfile_content.match?(/gem ['"]#{gem_name}['"]/)
+        end
+
+        def append_missing_configurations(path)
+          content = File.read(path)
+          missing_configs = []
+
+          unless content.include?("config.user_class")
+            missing_configs << "  # Set the user class for authentication (e.g., 'User')"
+            missing_configs << "  # config.user_class = nil"
+          end
+
+          unless content.include?("config.authentication_providers")
+            missing_configs << "  # Configure authentication providers (e.g., [:devise, :jwt])"
+            missing_configs << "  # config.authentication_providers = []"
+          end
+
+          unless content.include?("config.storage_provider")
+            missing_configs << "  # Set the storage provider (:active_storage or :aws)"
+            missing_configs << "  # config.storage_provider = :active_storage"
+          end
+
+          unless content.include?("config.cache_store")
+            missing_configs << "  # Set the cache store (:memory_store, :redis_cache_store, etc.)"
+            missing_configs << "  # config.cache_store = :memory_store"
+          end
+
+          if missing_configs.any?
+            inject_into_file path, before: /^end/ do
+              "\n#{missing_configs.join("\n")}\n"
+            end
+          end
         end
       end
     end
