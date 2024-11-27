@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
     "LICENSE",
     "Rakefile",
     "README.md",
-    "lib/panda_core/templates/**/*"
+    "lib/panda/core/templates/**/*"
   ]
 
   spec.add_dependency "activestorage-office-previewer"
