@@ -14,7 +14,5 @@ seclint:
       run: bundle outdated --strict
     standardrb:
       run: bundle exec standardrb
-    # yamllint:
-      # run: yamllint .
   name: Security & Linters
   parallel: true
