@@ -3,14 +3,14 @@
 require_relative "lib/panda/core/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "panda_core"
+  spec.name = "panda-core"
   spec.version = Panda::Core::VERSION
   spec.authors = ["Panda Software Limited", "James Inman"]
   spec.email = ["bamboo@pandacms.io"]
 
   spec.summary = "Core libraries and development tools for Panda Software projects"
   spec.description = "Shared development tools, configurations, and utilities for Panda CMS and its related projects"
-  spec.homepage = "https://github.com/tastybamboo/panda_core"
+  spec.homepage = "https://github.com/tastybamboo/panda-core"
   spec.license = "BSD-3-Clause"
   spec.required_ruby_version = ">= 3.0.0"
 

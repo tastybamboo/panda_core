@@ -2,6 +2,6 @@
 
 module Panda
   module Core
-    VERSION = File.read(File.expand_path("../../../VERSION", __dir__)).strip
+    VERSION = "0.1.0"
   end
 end
