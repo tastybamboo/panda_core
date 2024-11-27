@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "core/version"
+require "panda/core/railtie"
 
 module Panda
   module Core
