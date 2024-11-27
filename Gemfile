@@ -2,5 +2,5 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in panda_core.gemspec
-gemspec 
+# Specify your gem's dependencies in panda-core.gemspec
+gemspec

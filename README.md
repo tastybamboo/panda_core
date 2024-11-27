@@ -9,7 +9,7 @@ Core functionality shared between Panda Software gems:
 Add this line to your application's Gemfile:
 
 ```
-gem 'panda_core'
+gem 'panda-core'
 ```
 
 And then execute:
@@ -54,9 +54,7 @@ This will copy the following configuration files to your project:
 
 ### 3. Configure Dependencies
 
-The following gems will be added to your Gemfile:
-
-- `panda_core`
+The gems listed in the `panda-core.gemspec` will be added to your Gemfile (or, if this an engine, your `gem-name.gemspec` file).
 
 Make sure to follow the setup instructions for each of these gems.
 
