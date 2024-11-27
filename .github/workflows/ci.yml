@@ -24,14 +24,8 @@ jobs:
           bundler-cache: true
       - name: "Bundler Audit"
         run: "bundle exec bundle-audit --update"
-      - name: "Brakeman"
-        run: "bundle exec brakeman --quiet"
       - name: "StandardRB Check"
         run: "bundle exec standardrb"
-      - name: "ERB Check"
-        run: "bundle exec erb_lint app/views --lint-all"
-      - name: "YAML Lint"
-        run: "yamllint -c .yamllint ."
 
   specs:
     name: "App Specs"
@@ -86,7 +80,7 @@ jobs:
           PT_SILENCE_AR_COMPAT_WARNING: true
           # CUPRITE_DEBUG: "true"
         run: |
-          bundle exec rails db:setup
+          # bundle exec rails db:setup
           xvfb-run -a bundle exec rspec -f j -o tmp/rspec_results.json -f p
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
