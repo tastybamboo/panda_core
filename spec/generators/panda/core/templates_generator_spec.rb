@@ -64,10 +64,13 @@ RSpec.describe Panda::Core::Generators::TemplatesGenerator do
     # Check source files before running generator
     expected_config_files.each do |file|
       source_path = File.join(template_root, file)
-      puts "Source file check:"
-      puts "  Path: #{source_path}"
-      puts "  Exists?: #{File.exist?(source_path)}"
-      puts "  Absolute?: #{File.absolute_path?(source_path)}"
+      # puts "Source file check:"
+      # puts "  Path: #{source_path}"
+      # puts "  Exists?: #{File.exist?(source_path)}"
+      # puts "  Absolute?: #{File.absolute_path?(source_path)}"
+
+      expect(File).to exist(source_path),
+        "Expected #{file} to exist in #{source_path}"
     end
 
     run_generator
@@ -75,10 +78,10 @@ RSpec.describe Panda::Core::Generators::TemplatesGenerator do
     # Check destination files after running generator
     expected_config_files.each do |file|
       dest_path = File.join(destination_root, file)
-      puts "Destination file check:"
-      puts "  Path: #{dest_path}"
-      puts "  Exists?: #{File.exist?(dest_path)}"
-      puts "  Absolute?: #{File.absolute_path?(dest_path)}"
+      # puts "Destination file check:"
+      # puts "  Path: #{dest_path}"
+      # puts "  Exists?: #{File.exist?(dest_path)}"
+      # puts "  Absolute?: #{File.absolute_path?(dest_path)}"
 
       expect(File).to exist(dest_path),
         "Expected #{file} to exist in #{destination_root}"

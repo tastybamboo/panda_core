@@ -30,5 +30,5 @@ end)
 Capybara.server_host = "0.0.0.0"
 Capybara.server_port = 3001
 
-PandaCms.config.url = Capybara.app_host
+Panda::CMS.config.url = Capybara.app_host
 Rails.application.routes.default_url_options[:host] = Capybara.app_host

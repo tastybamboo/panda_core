@@ -70,7 +70,7 @@ module OmniAuthHelpers
   # User defintions
   # TODO: Move to fixtures or Oaken?
   def admin_user
-    PandaCms::User.find_or_create_by!(
+    Panda::CMS::User.find_or_create_by!(
       firstname: "Admin",
       lastname: "User",
       email: "admin@example.com",
@@ -80,7 +80,7 @@ module OmniAuthHelpers
   end
 
   def regular_user
-    PandaCms::User.find_or_create_by!(
+    Panda::CMS::User.find_or_create_by!(
       firstname: "Regular",
       lastname: "User",
       email: "regular@example.com",
