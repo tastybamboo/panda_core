@@ -487,6 +487,10 @@ GEM
       rack (>= 1.4)
     rexml (3.3.9)
     rouge (4.5.1)
+    rspec (3.13.0)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
     rspec-core (3.13.2)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.3)
@@ -678,6 +682,7 @@ DEPENDENCIES
   pg (~> 1.5)
   puma
   rake
+  rspec
   rspec-core (~> 3.13)
   rspec-github
   rspec-rails (~> 7.1)

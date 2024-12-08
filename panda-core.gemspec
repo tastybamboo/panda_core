@@ -79,6 +79,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "lookbook", "~> 2"
   spec.add_development_dependency "puma"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec"
   spec.add_development_dependency "rspec-core", "~> 3.13"
   spec.add_development_dependency "rspec-github"
   spec.add_development_dependency "rspec-rails", "~> 7.1"
