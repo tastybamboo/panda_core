@@ -91,6 +91,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "simplecov_lcov_formatter"
   spec.add_development_dependency "standard"
   spec.add_development_dependency "standard-rails"
+  spec.add_development_dependency "stringio", ">= 3.1.2"
   spec.add_development_dependency "yamllint"
   spec.add_development_dependency "yard-activerecord"
 end
