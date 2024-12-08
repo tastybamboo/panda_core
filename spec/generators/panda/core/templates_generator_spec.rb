@@ -58,8 +58,8 @@ RSpec.describe Panda::Core::Generators::TemplatesGenerator do
   it "copies all configuration files" do
     # Get absolute paths and verify template directory
     template_root = File.expand_path(described_class.source_root)
-    puts "Template root: #{template_root}"
-    puts "Destination root: #{destination_root}"
+    # puts "Template root: #{template_root}"
+    # puts "Destination root: #{destination_root}"
 
     # Check source files before running generator
     expected_config_files.each do |file|

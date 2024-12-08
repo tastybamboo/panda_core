@@ -1,3 +1,6 @@
+# Silence Thor deprecation warnings
+ENV["THOR_SILENCE_DEPRECATION"] = "1"
+
 require "simplecov"
 require "simplecov-json"
 SimpleCov.formatter = SimpleCov::Formatter::JSONFormatter
@@ -121,5 +124,32 @@ RSpec.configure do |config|
 
   config.after(:each, type: :generator) do
     FileUtils.rm_rf(Rails.root.join("tmp/generators"))
+  end
+
+  # Improve test performance
+  config.before(:suite) do
+    Rails.application.eager_load!
+  end
+
+  # Disable logging during tests
+  config.before(:suite) do
+    Rails.logger.level = Logger::ERROR
+    ActiveRecord::Base.logger = nil if defined?(ActiveRecord)
+    ActionController::Base.logger = nil if defined?(ActionController)
+    ActionMailer::Base.logger = nil if defined?(ActionMailer)
+  end
+
+  # Disable stdout during tests
+  config.before(:suite) do
+    $stdout = File.new(File::NULL, "w")
+  end
+
+  config.after(:suite) do
+    $stdout = STDOUT
+  end
+
+  # Suppress Rails command output during tests
+  config.before(:each, type: :generator) do
+    allow(Rails::Command).to receive(:invoke).and_return(true)
   end
 end

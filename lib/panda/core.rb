@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
+require "rails"
 require "dry-configurable"
-require_relative "core/version"
-require "panda/core/railtie"
 
 module Panda
   module Core
@@ -14,7 +13,10 @@ module Panda
     setting :cache_store, default: :memory_store
 
     def self.root
-      File.expand_path("..", __dir__)
+      File.expand_path("../..", __FILE__)
     end
   end
 end
+
+require_relative "core/configuration"
+require_relative "core/engine" if defined?(Rails)
